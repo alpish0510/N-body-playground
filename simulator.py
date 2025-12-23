@@ -21,6 +21,8 @@ parser.add_argument('--G', type=float, default=1.0, help='Gravitational constant
 parser.add_argument('--masses', type=float, nargs='+', default=[5.0, 3.0, 4.0], help='Masses of the bodies')
 parser.add_argument('--init_positions', type=float, nargs='+', default=[-10.0, 1.0, 0.0, 5.0, 2.0, 12.5], help='Initial positions (x1, x2, ..., y1, y2, ...)')
 parser.add_argument('--init_velocities', type=float, nargs='+', default=[0.2, -0.2, 0.0, 0.0, 0.0, -0.1], help='Initial velocities (vx1, vx2, ..., vy1, vy2, ...)')
+parser.add_argument('save_fig', type=bool, nargs='?', default=True, help='Whether to save the figure as an animation')
+parser.add_argument('--orbit', type=bool,default=False, help='Initialize an orbital system')
 args = parser.parse_args()      
 
 N = args.num_bodies
@@ -30,7 +32,8 @@ x0 = np.array(args.init_positions[:N])
 y0 = np.array(args.init_positions[N:2*N])
 vx0 = np.array(args.init_velocities[:N])
 vy0 = np.array(args.init_velocities[N:2*N])
-
+save_fig = args.save_fig
+orbit_switch = args.orbit
 
 t = sp.Symbol('t', real=True)
 G = sp.Symbol('G', positive=True)
@@ -151,4 +154,7 @@ def update(k):
     return [*lines, pts]
 
 anim = FuncAnimation(fig, update, frames=x_traj.shape[1], init_func=init, interval=2, blit=True)
-plt.show()
+if save_fig==True:
+    anim.save('n_body_simulation.gif', writer='pillow', fps=60)
+else:
+    plt.show()
