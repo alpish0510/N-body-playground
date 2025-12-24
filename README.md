@@ -79,7 +79,7 @@ pip install numpy scipy sympy matplotlib tqdm pillow ipython
 Run the script from the command line:
 
 ```bash
-python n_body.py [options]
+python simulator.py [options]
 ```
 
 ### Command-Line Arguments
@@ -101,7 +101,7 @@ python n_body.py [options]
 Run a basic 3-body simulation and save the animation:
 
 ```bash
-python n_body.py --num_bodies 3 --G 1.0 \
+python simulator.py --num_bodies 3 --G 1.0 \
 --masses 5 3 4 \
 --init_positions -10 1 0 5 2 12.5 \
 --init_velocities 0.2 -0.2 0 0 0 -0.1
@@ -121,6 +121,6 @@ in the current directory.
 
 * **Animated trajectories** of each body
 * **Scatter points** showing current positions
-* **Equal-aspect ratio** for physically accurate motion
+
 
 
