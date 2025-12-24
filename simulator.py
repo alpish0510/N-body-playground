@@ -153,7 +153,7 @@ def update(k):
     pts.set_offsets(np.c_[x_traj[:, k], y_traj[:, k]])
     return [*lines, pts]
 
-anim = FuncAnimation(fig, update, frames=x_traj.shape[1], init_func=init, interval=2, blit=True)
+anim = FuncAnimation(fig, update, frames=x_traj.shape[1], init_func=init, interval=20, blit=True)
 if save_fig==True:
     anim.save('n_body_simulation.gif', writer='pillow', fps=60)
 else:
