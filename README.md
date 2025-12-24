@@ -1,8 +1,3 @@
-Below is a clean, well-structured **`README.md`** you can drop directly into your repository. It explains what the script does, how it works, dependencies, usage, and examples, without going too deep into implementation details.
-
-You can copy-paste this as-is.
-
----
 
 # N-Body Simulation in Python
 
